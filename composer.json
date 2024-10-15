@@ -1,0 +1,95 @@
+{
+    "name": "drupal/acquia_starterkits",
+    "description": "This is development repo for Acquia Drupal Starter Kits recipes. Each recipe is available as its own composer package, while developed in a monorepo/manyrepos approach within this repo.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Acquia Engineering",
+            "email": "engineering@acquia.org",
+            "role": "Maintainer"
+        }
+    ],
+    "require-dev": {
+        "composer/installers": "^2.3",
+        "drupal/core-composer-scaffold": "^10.3 || ^11.0",
+        "drupal/core-dev": "^10.3 || ^11.0",
+        "drupal/core-recommended": "^10.3 || ^11.0",
+        "drush/drush": "^12.5.3 || ^13.3",
+        "ergebnis/composer-normalize": "^2.44",
+        "phpro/grumphp-shim": "^2.8"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true,
+            "phpro/grumphp-shim": true,
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+                "project-root": ".",
+                "web-root": "./docroot"
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "docroot/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "recipes/{$name}": [
+                "type:drupal-recipe"
+            ]
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {}
+    },
+    "scripts": {
+        "run-tests": "phpunit",
+        "switch:drupal10": "@composer update \"drupal/core-*\" drush/drush -W --with=drupal/core:^10.3",
+        "switch:drupal11": "@composer update \"drupal/core-*\" drush/drush -W --with=drupal/core:^11.0"
+    }
+}

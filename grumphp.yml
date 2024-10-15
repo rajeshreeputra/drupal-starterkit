@@ -1,0 +1,4 @@
+grumphp:
+    tasks:
+      yamllint: ~
+      composer_normalize: ~
