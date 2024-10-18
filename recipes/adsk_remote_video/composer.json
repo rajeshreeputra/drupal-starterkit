@@ -1,0 +1,14 @@
+{
+    "name": "drupal/adsk_remote_video",
+    "type": "drupal-recipe",
+    "description": "Provides a Remote Video media type and related configuration.",
+    "version": "dev-develop",
+    "require": {
+        "drupal/adsk_base_media": "^1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.x-dev"
+        }
+    }
+}

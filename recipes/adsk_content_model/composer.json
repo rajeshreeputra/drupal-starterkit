@@ -1,0 +1,19 @@
+{
+    "name": "drupal/adsk_content_model",
+    "type": "drupal-recipe",
+    "description": "An media model provides Audio, Document, Image< Video media types.",
+    "version": "dev-develop",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/adsk_article": "dev-develop",
+        "drupal/adsk_event": "dev-develop",
+        "drupal/adsk_page": "dev-develop",
+        "drupal/adsk_person": "dev-develop",
+        "drupal/adsk_place": "dev-develop"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.x-dev"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "drupal/adsk_media",
+    "type": "drupal-recipe",
+    "description": "An media model provides Document, Image, Remote Audio, Remote Video media types.",
+    "version": "dev-develop",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/adsk_document": "dev-develop",
+        "drupal/adsk_image": "dev-develop",
+        "drupal/adsk_remote_audio": "dev-develop",
+        "drupal/adsk_remote_video": "dev-develop"
+    },
+    "extra": {
+      "branch-alias": {
+        "dev-develop": "1.x-dev"
+      }
+    }
+}

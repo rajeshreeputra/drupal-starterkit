@@ -1,0 +1,10 @@
+name: 'Acquia Drupal Startekit Media'
+description: 'An media model provides Audio, Document, Image, Video media types.'
+type: 'Starterkit addon'
+recipes:
+  - adsk_document
+  - adsk_image
+  - adsk_remote_audio
+  - adsk_remote_video
+config:
+  strict: false
