@@ -6,3 +6,5 @@ recipes:
   - adsk_image
   - adsk_remote_audio
   - adsk_remote_video
+config:
+  strict: false

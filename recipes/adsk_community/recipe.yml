@@ -15,7 +15,6 @@ config:
   import:
     olivero:
       - block.block.olivero_breadcrumbs
-      - block.block.olivero_help
       - block.block.olivero_syndicate
   actions:
     olivero.settings:

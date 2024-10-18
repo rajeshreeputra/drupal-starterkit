@@ -16,6 +16,7 @@ config:
     media_library: '*'
     image:
       - image.style.medium
+  strict: false
   actions:
 #    taxonomy.vocabulary.categories:
 #      createIfNotExists:

@@ -6,6 +6,7 @@ recipes:
   - core/recipes/tags_taxonomy
   - adsk_base_media
 config:
+  strict: false
   actions:
 #    taxonomy.vocabulary.categories:
 #      createIfNotExists:
@@ -225,9 +226,9 @@ config:
 #        cache: true
     core.entity_view_display.media.remote_video.embedded:
       createIfNotExists:
-        id: media.video.embedded
+        id: media.remote_video.embedded
         targetEntityType: media
-        bundle: video
+        bundle: remote_video
         mode: embedded
         content:
           field_media_oembed_video:

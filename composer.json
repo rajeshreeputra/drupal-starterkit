@@ -11,8 +11,16 @@
     ],
     "homepage": "https://github.com/acquia/drupal-starterkits",
     "require": {
-        "drupal/acquia_cms_toolbar": "*",
-        "drupal/acquia_cms_tour": "*"
+        "drupal/acquia_cms_toolbar": "^1.5",
+        "drupal/acquia_cms_tour": "^2.1",
+        "drupal/adsk_community": "^1",
+        "drupal/adsk_dam": "^1",
+        "drupal/adsk_demo_content": "^1",
+        "drupal/adsk_gdpr": "^1",
+        "drupal/adsk_headless": "^1",
+        "drupal/adsk_installer": "^1",
+        "drupal/adsk_low_code": "^1",
+        "drush/drush": "^13"
     },
     "require-dev": {
         "acquia/coding-standards": "^1.0",
@@ -295,17 +303,7 @@
                 "[project-root]/.gitattributes": false,
                 "[web-root]/.csslintrc": false,
                 "[web-root]/INSTALL.txt": false,
-                "[web-root]/drush/drush.yml": "drush/drush.yml",
                 "[web-root]/example.gitignore": false,
-                "[web-root]/modules/README.txt": false,
-                "[web-root]/profiles/README.txt": false,
-                "[web-root]/robots.txt": false,
-                "[web-root]/sites/README.txt": false,
-                "[web-root]/sites/default/default.settings.php": {
-                    "append": "./patches/d9-acms-settings.patch"
-                },
-                "[web-root]/themes/README.txt": false,
-                "[web-root]/themes/contrib/cohesion-theme/templates/maintenance-page.html.twig": "./patches/maintenance-page.patch",
                 "[web-root]/web.config": false
             },
             "locations": {
@@ -348,7 +346,8 @@
         "patches": {
             "drupal/core": {
                 "3328187 - PHP Deprecated: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated in docroot/core/lib/Drupal/Core/Mail/Plugin/Mail/PhpMail.php on line 112": "https://git.drupalcode.org/project/drupal/-/merge_requests/3142.patch",
-                "Fix failing test for site studio due to missing file": "https://gist.githubusercontent.com/chandan-singh7929/978c8c3c8b6f1e2de23492e7e562c0c3/raw/f0e7770d94be862e5495ca25662a0a0d5672b785/bypass-library-version-core.patch"
+                "Fix failing test for site studio due to missing file": "https://gist.githubusercontent.com/chandan-singh7929/978c8c3c8b6f1e2de23492e7e562c0c3/raw/f0e7770d94be862e5495ca25662a0a0d5672b785/bypass-library-version-core.patch",
+                "Relax some core recipes' comparison with existing config": "https://www.drupal.org/files/issues/2024-10-10/core-recipes-strict.patch"
             },
             "mglaman/drupal-check": {
                 "Add custom rules to bypass check for buildForm": "https://github.com/mglaman/drupal-check/pull/286.patch"

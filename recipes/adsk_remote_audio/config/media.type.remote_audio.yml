@@ -6,9 +6,6 @@ dependencies:
   enforced:
     module:
       - media_entity_soundcloud
-third_party_settings:
-  crop:
-    image_field: null
 id: remote_audio
 label: Remote Audio
 description: 'Remotely hosted audio from external sources soundcloud.'

@@ -12,3 +12,4 @@ config:
   import:
     field_group: '*'
     media_library: '*'
+  strict: false
