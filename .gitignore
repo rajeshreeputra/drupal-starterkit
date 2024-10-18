@@ -1,0 +1,13 @@
+bower_components/
+docroot/
+.DS_Store
+.idea/
+node_modules/
+/package-lock.json
+.sass-cache/
+vendor/
+nohup.out
+# Cypress References
+tests/cypress/cypress-combined-report.json
+tests/cypress/cypress/reports
+tests/cypress/cypress/screenshots

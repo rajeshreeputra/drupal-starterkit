@@ -1,0 +1,358 @@
+{
+    "name": "acquia/drupal-starterkits",
+    "description": "An implementation of Acquia opinionated Drupal recipes.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Acquia Engineering",
+            "email": "engineering@acquia.org",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://github.com/acquia/drupal-starterkits",
+    "require": {
+        "drupal/acquia_cms_toolbar": "*",
+        "drupal/acquia_cms_tour": "*"
+    },
+    "require-dev": {
+        "acquia/coding-standards": "^1.0",
+        "drupal/core-composer-scaffold": "^10 || ^11",
+        "drupal/core-dev": "^10 || ^11",
+        "ergebnis/composer-normalize": "^2.31.0",
+        "mglaman/drupal-check": "^1.4",
+        "oomphinc/composer-installers-extender": "^1.1 || ^2",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpunit/phpunit": "^9.4.0 || ^10",
+        "weitzman/drupal-test-traits": "^2"
+    },
+    "repositories": {
+        "chart.js": {
+            "type": "package",
+            "package": {
+                "name": "nnnick/chartjs",
+                "type": "drupal-library",
+                "version": "v4.4.1",
+                "dist": {
+                    "type": "file",
+                    "url": "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+                }
+            }
+        },
+        "adsk_admin_theme": {
+            "type": "path",
+            "url": "./recipes/adsk_admin_theme",
+            "options": {
+                "versions": {
+                    "drupal/adsk_admin_theme": "dev-develop"
+                }
+            }
+        },
+        "adsk_article": {
+            "type": "path",
+            "url": "./recipes/adsk_article",
+            "options": {
+                "versions": {
+                    "drupal/adsk_article": "dev-develop"
+                }
+            }
+        },
+        "adsk_base_media": {
+          "type": "path",
+          "url": "./recipes/adsk_base_media",
+          "options": {
+            "versions": {
+              "drupal/adsk_base_media": "dev-develop"
+            }
+          }
+        },
+        "adsk_basic_html_editor": {
+            "type": "path",
+            "url": "./recipes/adsk_basic_html_editor",
+            "options": {
+                "versions": {
+                    "drupal/adsk_basic_html_editor": "dev-develop"
+                }
+            }
+        },
+        "adsk_community": {
+            "type": "path",
+            "url": "./recipes/adsk_community",
+            "options": {
+                "versions": {
+                    "drupal/adsk_community": "dev-develop"
+                }
+            }
+        },
+        "adsk_content_model": {
+            "type": "path",
+            "url": "./recipes/adsk_content_model",
+            "options": {
+                "versions": {
+                    "drupal/adsk_content_model": "dev-develop"
+                }
+            }
+        },
+        "adsk_dam": {
+            "type": "path",
+            "url": "./recipes/adsk_dam",
+            "options": {
+                "versions": {
+                    "drupal/adsk_dam": "dev-develop"
+                }
+            }
+        },
+        "adsk_demo_content": {
+            "type": "path",
+            "url": "./recipes/adsk_demo_content",
+            "options": {
+                "versions": {
+                    "drupal/adsk_demo_content": "dev-develop"
+                }
+            }
+        },
+        "adsk_document": {
+            "type": "path",
+            "url": "./recipes/adsk_document",
+            "options": {
+                "versions": {
+                    "drupal/adsk_document": "dev-develop"
+                }
+            }
+        },
+        "adsk_event": {
+            "type": "path",
+            "url": "./recipes/adsk_event",
+            "options": {
+                "versions": {
+                    "drupal/adsk_event": "dev-develop"
+                }
+            }
+        },
+        "adsk_full_html_editor": {
+            "type": "path",
+            "url": "./recipes/adsk_full_html_editor",
+            "options": {
+                "versions": {
+                    "drupal/adsk_full_html_editor": "dev-develop"
+                }
+            }
+        },
+        "adsk_gdpr": {
+            "type": "path",
+            "url": "./recipes/adsk_gdpr",
+            "options": {
+                "versions": {
+                    "drupal/adsk_gdpr": "dev-develop"
+                }
+            }
+        },
+        "adsk_headless": {
+            "type": "path",
+            "url": "./recipes/adsk_headless",
+            "options": {
+                "versions": {
+                    "drupal/adsk_headless": "dev-develop"
+                }
+            }
+        },
+        "adsk_image": {
+            "type": "path",
+            "url": "./recipes/adsk_image",
+            "options": {
+                "versions": {
+                    "drupal/adsk_image": "dev-develop"
+                }
+            }
+        },
+        "adsk_installer": {
+            "type": "path",
+            "url": "./recipes/adsk_installer",
+            "options": {
+                "versions": {
+                    "drupal/adsk_installer": "dev-develop"
+                }
+            }
+        },
+        "adsk_low_code": {
+            "type": "path",
+            "url": "./recipes/adsk_low_code",
+            "options": {
+                "versions": {
+                    "drupal/adsk_low_code": "dev-develop"
+                }
+            }
+        },
+        "adsk_media": {
+            "type": "path",
+            "url": "./recipes/adsk_media",
+            "options": {
+                "versions": {
+                    "drupal/adsk_media": "dev-develop"
+                }
+            }
+        },
+        "adsk_page": {
+            "type": "path",
+            "url": "./recipes/adsk_page",
+            "options": {
+                "versions": {
+                    "drupal/adsk_page": "dev-develop"
+                }
+            }
+        },
+        "adsk_person": {
+            "type": "path",
+            "url": "./recipes/adsk_person",
+            "options": {
+                "versions": {
+                    "drupal/adsk_person": "dev-develop"
+                }
+            }
+        },
+        "adsk_place": {
+            "type": "path",
+            "url": "./recipes/adsk_place",
+            "options": {
+                "versions": {
+                    "drupal/adsk_place": "dev-develop"
+                }
+            }
+        },
+        "adsk_remote_audio": {
+            "type": "path",
+            "url": "./recipes/adsk_remote_audio",
+            "options": {
+                "versions": {
+                    "drupal/adsk_remote_audio": "dev-develop"
+                }
+            }
+        },
+        "adsk_remote_video": {
+            "type": "path",
+            "url": "./recipes/adsk_remote_video",
+            "options": {
+                "versions": {
+                    "drupal/adsk_remote_video": "dev-develop"
+                }
+            }
+        },
+        "adsk_search": {
+            "type": "path",
+            "url": "./recipes/adsk_search",
+            "options": {
+                "versions": {
+                    "drupal/adsk_search": "dev-develop"
+                }
+            }
+        },
+        "adsk_security": {
+            "type": "path",
+            "url": "./recipes/adsk_security",
+            "options": {
+                "versions": {
+                    "drupal/adsk_security": "dev-develop"
+                }
+            }
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "acquia/drupal-recommended-settings": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "ergebnis/composer-normalize": true,
+            "mnsami/composer-custom-directory-installer": true,
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "phpro/grumphp-shim": true,
+            "phpstan/extension-installer": true,
+            "webdriver-binary/binary-chromedriver": true,
+            "wikimedia/composer-merge-plugin": true,
+            "tbachert/spi": true
+        },
+        "preferred-install": {
+            "drupal/core": "dist"
+        },
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "file-mapping": {
+                "[project-root]/.editorconfig": false,
+                "[project-root]/.gitattributes": false,
+                "[web-root]/.csslintrc": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/drush/drush.yml": "drush/drush.yml",
+                "[web-root]/example.gitignore": false,
+                "[web-root]/modules/README.txt": false,
+                "[web-root]/profiles/README.txt": false,
+                "[web-root]/robots.txt": false,
+                "[web-root]/sites/README.txt": false,
+                "[web-root]/sites/default/default.settings.php": {
+                    "append": "./patches/d9-acms-settings.patch"
+                },
+                "[web-root]/themes/README.txt": false,
+                "[web-root]/themes/contrib/cohesion-theme/templates/maintenance-page.html.twig": "./patches/maintenance-page.patch",
+                "[web-root]/web.config": false
+            },
+            "locations": {
+                "project-root": ".",
+                "web-root": "./docroot"
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset",
+                "swagger-api/swagger-ui",
+                "nnnick/chartjs"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "docroot/recipes/{$name}": [
+                "type:drupal-recipe"
+            ]
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "3328187 - PHP Deprecated: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated in docroot/core/lib/Drupal/Core/Mail/Plugin/Mail/PhpMail.php on line 112": "https://git.drupalcode.org/project/drupal/-/merge_requests/3142.patch",
+                "Fix failing test for site studio due to missing file": "https://gist.githubusercontent.com/chandan-singh7929/978c8c3c8b6f1e2de23492e7e562c0c3/raw/f0e7770d94be862e5495ca25662a0a0d5672b785/bypass-library-version-core.patch"
+            },
+            "mglaman/drupal-check": {
+                "Add custom rules to bypass check for buildForm": "https://github.com/mglaman/drupal-check/pull/286.patch"
+            }
+        }
+    }
+}

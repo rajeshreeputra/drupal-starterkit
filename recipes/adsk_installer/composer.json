@@ -1,0 +1,14 @@
+{
+    "name": "drupal/adsk_installer",
+    "type": "drupal-profile",
+    "description": "Provides install-time tweaks for Acquia Drupal Starterkit.",
+    "version": "dev-develop",
+    "require": {
+        "drupal/core": ">=10.3"
+    },
+    "extra": {
+      "branch-alias": {
+        "dev-develop": "1.x-dev"
+      }
+    }
+}

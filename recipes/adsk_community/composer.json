@@ -1,0 +1,21 @@
+{
+    "name": "drupal/adsk_community",
+    "type": "drupal-recipe",
+    "description": "The community starter kit will install Acquia CMS. An optional content model can be added in the installation process.",
+    "version": "dev-develop",
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/acquia_cms_toolbar": "^1.5",
+        "drupal/acquia_cms_tour": "^2.1",
+        "drupal/project_browser": "^2",
+        "drupal/adsk_admin_theme": "dev-develop",
+        "drupal/adsk_security": "dev-develop",
+        "drupal/adsk_basic_html_editor": "dev-develop",
+        "drupal/adsk_Full_html_editor": "dev-develop"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.x-dev"
+        }
+    }
+}

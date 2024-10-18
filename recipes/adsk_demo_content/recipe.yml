@@ -1,0 +1,10 @@
+name: 'Acquia Drupal Startekit Demo Content'
+description: "Provides integration between your Drupal site and Acquia's hosted search service."
+type: 'Starterkit addon'
+recipes:
+  - adsk_content_model
+  - adsk_media
+  - adsk_search
+install:
+  # Contrib
+  - default_content
