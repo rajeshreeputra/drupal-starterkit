@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\Tests\adsk_installer\Functional;
+namespace Drupal\Tests\acquia_starterkit_installer\Functional;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ExtensionList;
@@ -13,14 +13,14 @@ use Drupal\FunctionalTests\Installer\InstallerTestBase;
 use Drupal\user\Entity\User;
 
 /**
- * @group adsk_installer
+ * @group acquia_starterkit_installer
  */
 class InteractiveInstallTest extends InstallerTestBase {
 
   /**
    * {@inheritdoc}
    */
-  protected $profile = 'adsk_installer';
+  protected $profile = 'acquia_starterkit_installer';
 
   /**
    * {@inheritdoc}
@@ -95,7 +95,7 @@ class InteractiveInstallTest extends InstallerTestBase {
    */
   public function testPostInstallState(): void {
     // The site name and site-wide email address should have been set.
-    // @see \Drupal\adsk_installer\Form\SiteNameForm
+    // @see \Drupal\acquia_starterkit_installer\Form\SiteNameForm
     $site_config = $this->config('system.site');
     $this->assertSame('Acquia Drupal Starterkit', $site_config->get('name'));
 
@@ -113,7 +113,7 @@ class InteractiveInstallTest extends InstallerTestBase {
     $account->setPassword('pastafazoul')->save();
 
     // The installer should have uninstalled itself.
-    // @see adsk_installer_uninstall_myself()
+    // @see acquia_starterkit_installer_uninstall_myself()
     $this->assertFalse($this->container->getParameter('install_profile'));
 
     // Ensure that there are non-core extensions installed, which proves that

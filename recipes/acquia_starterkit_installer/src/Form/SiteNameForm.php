@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\adsk_installer\Form;
+namespace Drupal\acquia_starterkit_installer\Form;
 
 use Drupal\Core\Form\FormStateInterface;
 
@@ -15,7 +15,7 @@ final class SiteNameForm extends InstallerFormBase {
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'adsk_installer_site_name_form';
+    return 'acquia_starterkit_installer_site_name_form';
   }
 
   /**

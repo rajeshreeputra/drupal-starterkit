@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\adsk_installer\Form;
+namespace Drupal\acquia_starterkit_installer\Form;
 
 use Drupal\Component\Utility\UserAgent;
 use Drupal\Core\Form\FormBase;

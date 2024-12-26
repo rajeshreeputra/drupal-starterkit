@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\Tests\adsk_installer\Functional;
+namespace Drupal\Tests\acquia_starterkit_installer\Functional;
 
 use Drupal\Core\Test\TestSetupTrait;
 use Drush\TestTraits\DrushTestTrait;
@@ -11,7 +11,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
 /**
- * @group adsk_installer
+ * @group acquia_starterkit_installer
  * @requires extension pdo_sqlite
  */
 class CommandLineInstallTest extends TestCase {
@@ -93,7 +93,7 @@ class CommandLineInstallTest extends TestCase {
       PHP_BINDIR . '/php',
       'core/scripts/drupal',
       'install',
-      'adsk_installer',
+      'acquia_starterkit_installer',
     ];
     $process = new Process($command, $this->root, [
       'DRUPAL_DEV_SITE_PATH' => $this->siteDirectory,

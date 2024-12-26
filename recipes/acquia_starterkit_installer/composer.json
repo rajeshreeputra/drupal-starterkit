@@ -1,5 +1,5 @@
 {
-    "name": "drupal/adsk_installer",
+    "name": "drupal/acquia_starterkit_installer",
     "type": "drupal-profile",
     "description": "Provides install-time tweaks for Acquia Drupal Starterkit.",
     "version": "dev-develop",

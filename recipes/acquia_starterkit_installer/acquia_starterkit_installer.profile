@@ -9,22 +9,22 @@ use Drupal\Core\Installer\Form\SiteConfigureForm;
 use Drupal\Core\Installer\Form\SiteSettingsForm;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
-use Drupal\adsk_installer\Form\RecipesStarterkitForm;
-use Drupal\adsk_installer\Form\RecipesAddOnForm;
-use Drupal\adsk_installer\Form\SiteNameForm;
+use Drupal\acquia_starterkit_installer\Form\RecipesStarterkitForm;
+use Drupal\acquia_starterkit_installer\Form\RecipesAddOnForm;
+use Drupal\acquia_starterkit_installer\Form\SiteNameForm;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install_tasks().
  */
-function adsk_installer_install_tasks(): array {
+function acquia_starterkit_installer_install_tasks(): array {
   // Ensure our forms are loadable in all situations, even if the installer is
   // not a Composer-managed package.
   \Drupal::service('class_loader')
-    ->addPsr4('Drupal\\adsk_installer\\', __DIR__ . '/src');
+    ->addPsr4('Drupal\\acquia_starterkit_installer\\', __DIR__ . '/src');
 
   return [
-    'adsk_installer_uninstall_myself' => [
+    'acquia_starterkit_installer_uninstall_myself' => [
       // As a final task, this profile should uninstall itself.
     ],
   ];
@@ -33,7 +33,7 @@ function adsk_installer_install_tasks(): array {
 /**
  * Implements hook_install_tasks_alter().
  */
-function adsk_installer_install_tasks_alter(array &$tasks, array $install_state): void {
+function acquia_starterkit_installer_install_tasks_alter(array &$tasks, array $install_state): void {
   $insert_before = function (string $key, array $additions) use (&$tasks): void {
     $key = array_search($key, array_keys($tasks), TRUE);
     if ($key === FALSE) {
@@ -47,19 +47,19 @@ function adsk_installer_install_tasks_alter(array &$tasks, array $install_state)
   };
 
   $insert_before('install_settings_form', [
-    'adsk_installer_choose_recipes' => [
+    'acquia_starterkit_installer_choose_recipes' => [
       'display_name' => t('Choose add-ons'),
       'type' => 'form',
       'run' => array_key_exists('recipes', $install_state['parameters']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
       'function' => RecipesStarterkitForm::class,
     ],
-    'adsk_installer_addons' => [
+    'acquia_starterkit_installer_addons' => [
       'display_name' => t('Extend Acquia Drupal Starter Kit with Add-ons'),
       'type' => 'form',
       'run' => array_key_exists('recipes_starterkit_addons', $install_state['parameters']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
       'function' => RecipesAddOnForm::class,
     ],
-    'adsk_installer_site_name_form' => [
+    'acquia_starterkit_installer_site_name_form' => [
       'display_name' => t('Name your site'),
       'type' => 'form',
       'run' => array_key_exists('site_name', $install_state['parameters']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
@@ -73,17 +73,17 @@ function adsk_installer_install_tasks_alter(array &$tasks, array $install_state)
 
   // The database settings form should be submitted programmatically in the
   // trial experience.
-  $tasks['install_settings_form']['function'] = 'adsk_installer_database_settings';
+  $tasks['install_settings_form']['function'] = 'acquia_starterkit_installer_database_settings';
   unset($tasks['install_settings_form']['type']);
 
   // Submit the site configuration form programmatically.
   $tasks['install_configure_form'] = [
-    'function' => 'adsk_installer_configure_site',
+    'function' => 'acquia_starterkit_installer_configure_site',
   ];
 
   // Wrap the install_profile_modules() function, which returns a batch job, and
   // add all the necessary operations to apply the chosen template recipe.
-  $tasks['install_profile_modules']['function'] = 'adsk_installer_apply_recipes';
+  $tasks['install_profile_modules']['function'] = 'acquia_starterkit_installer_apply_recipes';
 
   // Since we're using recipes, we can skip `install_profile_themes` and
   // `install_install_profile`.
@@ -96,7 +96,7 @@ function adsk_installer_install_tasks_alter(array &$tasks, array $install_state)
  *
  * @see \Drupal\Core\Installer\Form\SiteSettingsForm
  */
-function adsk_installer_form_install_settings_form_alter(array &$form): void {
+function acquia_starterkit_installer_form_install_settings_form_alter(array &$form): void {
   // Default to SQLite, if available, because it doesn't require any additional
   // configuration.
   $sqlite = 'Drupal\sqlite\Driver\Database\sqlite';
@@ -114,7 +114,7 @@ function adsk_installer_form_install_settings_form_alter(array &$form): void {
  * @return array
  *   The batch job definition.
  */
-function adsk_installer_apply_recipes(array &$install_state): array {
+function acquia_starterkit_installer_apply_recipes(array &$install_state): array {
   $batch = install_profile_modules($install_state);
   $batch['title'] = t('Setting up your site');
 
@@ -133,7 +133,7 @@ function adsk_installer_apply_recipes(array &$install_state): array {
 /**
  * Programmatically submits the database settings form if needed.
  */
-function adsk_installer_database_settings(array &$install_state): ?array {
+function acquia_starterkit_installer_database_settings(array &$install_state): ?array {
   $interactive = $install_state['interactive'];
   $result = install_get_form(SiteSettingsForm::class, $install_state);
   $install_state['interactive'] = $interactive;
@@ -144,7 +144,7 @@ function adsk_installer_database_settings(array &$install_state): ?array {
 /**
  * Programmatically executes core's site configuration form.
  */
-function adsk_installer_configure_site(array &$install_state): ?array {
+function acquia_starterkit_installer_configure_site(array &$install_state): ?array {
   $random_password = (new Random())->machineName();
   $host = \Drupal::request()->getHost();
 
@@ -184,12 +184,12 @@ function adsk_installer_configure_site(array &$install_state): ?array {
 /**
  * Implements hook_library_info_alter().
  */
-function adsk_installer_library_info_alter(array &$libraries, string $extension): void {
+function acquia_starterkit_installer_library_info_alter(array &$libraries, string $extension): void {
   global $install_state;
   // If a library file's path starts with `/`, the library collection system
   // treats it as relative to the base path.
   // @see \Drupal\Core\Asset\LibraryDiscoveryParser::buildByExtension()
-  $base_path = '/' . $install_state['profiles']['adsk_installer']->getPath();
+  $base_path = '/' . $install_state['profiles']['acquia_starterkit_installer']->getPath();
 
   if ($extension === 'claro') {
     $libraries['maintenance-page']['css']['theme']["$base_path/css/gin-variables.css"] = [];
@@ -210,7 +210,7 @@ function adsk_installer_library_info_alter(array &$libraries, string $extension)
  *
  * @see drupal_install_system()
  */
-function adsk_installer_uninstall_myself(): void {
+function acquia_starterkit_installer_uninstall_myself(): void {
   // `drupal_install_system()` sets `profile` in `core.extension` regardless
   // of whether the profile is actually installed by the module installer.
   \Drupal::configFactory()
@@ -222,9 +222,9 @@ function adsk_installer_uninstall_myself(): void {
 /**
  * Implements hook_theme_registry_alter().
  */
-function adsk_installer_theme_registry_alter(array &$hooks): void {
+function acquia_starterkit_installer_theme_registry_alter(array &$hooks): void {
   global $install_state;
-  $installer_path = $install_state['profiles']['adsk_installer']->getPath();
+  $installer_path = $install_state['profiles']['acquia_starterkit_installer']->getPath();
 
   $hooks['install_page']['path'] = $installer_path . '/templates';
 }
@@ -232,12 +232,12 @@ function adsk_installer_theme_registry_alter(array &$hooks): void {
 /**
  * Preprocess function for all pages in the installer.
  */
-function adsk_installer_preprocess_install_page(array &$variables): void {
+function acquia_starterkit_installer_preprocess_install_page(array &$variables): void {
   // Don't show the task list or the version of Drupal.
   unset($variables['page']['sidebar_first'], $variables['site_version']);
 
   global $install_state;
-  $images_path = $install_state['profiles']['adsk_installer']->getPath() . '/images';
+  $images_path = $install_state['profiles']['acquia_starterkit_installer']->getPath() . '/images';
   $images_path = \Drupal::service(FileUrlGeneratorInterface::class)
     ->generateString($images_path);
   $variables['images_path'] = $images_path;

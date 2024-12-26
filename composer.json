@@ -17,7 +17,6 @@
         "drupal/adsk_demo_content": "^1",
         "drupal/adsk_gdpr": "^1",
         "drupal/adsk_headless": "^1",
-        "drupal/adsk_installer": "^1",
         "drupal/adsk_low_code": "^1"
     },
     "require-dev": {
@@ -168,12 +167,12 @@
                 }
             }
         },
-        "adsk_installer": {
+        "acquia_starterkit_installer": {
             "type": "path",
-            "url": "./recipes/adsk_installer",
+            "url": "./recipes/acquia_starterkit_installer",
             "options": {
                 "versions": {
-                    "drupal/adsk_installer": "dev-develop"
+                    "drupal/acquia_starterkit_installer": "dev-develop"
                 }
             }
         },
